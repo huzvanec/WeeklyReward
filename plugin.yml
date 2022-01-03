@@ -1,4 +1,4 @@
-main: cz.zausima.weeklyreward.WeeklyReward
+main: cz.jeme.weeklyreward.WeeklyReward
 name: WeeklyReward
 version: 1.0.0
 author: XD_CZ

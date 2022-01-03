@@ -1,4 +1,4 @@
-package cz.zausima.weeklyreward;
+package cz.jeme.weeklyreward;
 
 import java.io.File;
 import java.io.IOException;
