@@ -1,0 +1,8 @@
+main: cz.zausima.weeklyreward.WeeklyReward
+name: WeeklyReward
+version: 1.0.0
+author: XD_CZ
+description: Give players rewards every week
+api-version: 1.16
+website: programu.jeme.cz
+prefix: [WeeklyReward]
