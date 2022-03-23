@@ -1,4 +1,4 @@
-package cz.jeme.weeklyreward;
+package cz.jeme.programu.weeklyreward;
 
 import java.io.File;
 import java.io.IOException;
