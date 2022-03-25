@@ -56,19 +56,19 @@ public class WeeklyReward extends JavaPlugin {
 
 	
 	private void rewardFileConfig() {
-		File rewardsFile = new File(getDataFolder(), "rewards.yml");
-		// create rewards.yml
+		File rewardsFile = new File(getDataFolder(), "rewards-config.yml");
+		// create rewards-config.yml
 		if (!(rewardsFile.exists())) {
 			try {
 				rewardsFile.createNewFile();
 			} catch (IOException e) {
-				Bukkit.getServer().getLogger().log(Level.SEVERE, "WeeklyReward: Cannot create file \"rewards.yml\"", e);
+				Bukkit.getServer().getLogger().log(Level.SEVERE, "WeeklyReward: Cannot create file \"rewards-config.yml\"", e);
 			}
 		}
-		FileConfiguration rewardsYml = YamlConfiguration.loadConfiguration(rewardsFile);
-		ConfigurationSection section = rewardsYml.getConfigurationSection("Rewards");
+		FileConfiguration rewardsConfigYml = YamlConfiguration.loadConfiguration(rewardsFile);
+		ConfigurationSection section = rewardsConfigYml.getConfigurationSection("Rewards");
 		if (section == null) {
-			section = rewardsYml.createSection("Rewards");
+			section = rewardsConfigYml.createSection("Rewards");
 
 		}
 		Set<String> weekRewards = section.getKeys(false);
@@ -79,11 +79,11 @@ public class WeeklyReward extends JavaPlugin {
 			section.set("gold_ingot 15", 25);
 			section.set("iron_ingot 25", 30);
 			section.set("coal_block 5", 15);
-			// save to rewards.yml
+			// save to rewards-config.yml
 			try {
-				rewardsYml.save(rewardsFile);
+				rewardsConfigYml.save(rewardsFile);
 			} catch (IOException e) {
-				Bukkit.getServer().getLogger().log(Level.SEVERE, "WeeklyReward: Cannot save file \"rewards.yml\"", e);
+				Bukkit.getServer().getLogger().log(Level.SEVERE, "WeeklyReward: Cannot save file \"rewards-config.yml\"", e);
 			}
 			weekRewards = section.getKeys(false);
 		}

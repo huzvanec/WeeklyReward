@@ -33,13 +33,13 @@ public class JoinEvent implements Listener {
 	public void onPlayerJoin(PlayerJoinEvent event) {
 		Bukkit.getServer().getLogger().log(Level.INFO, "WeeklyReward: Event onPlayerLogin detected activity");
 		Player p = event.getPlayer();
-		File weekFile = new File(dataFolderName, "weekslog.yml");
-		// create weekslog.yml
+		File weekFile = new File(dataFolderName, "weeks-log.yml");
+		// create weeks-log.yml
 		if (!(weekFile.exists())) {
 			try {
 				weekFile.createNewFile();
 			} catch (IOException e) {
-				Bukkit.getServer().getLogger().log(Level.SEVERE, "WeeklyReward: Cannot create file \"weekslog.yml\"",
+				Bukkit.getServer().getLogger().log(Level.SEVERE, "WeeklyReward: Cannot create file \"weeks-log.yml\"",
 						e);
 			}
 		}
@@ -50,11 +50,11 @@ public class JoinEvent implements Listener {
 		}
 		Set<String> playerNames = section.getKeys(false);
 		String playerName = p.getName();
-		// player is not in weekslog.yml, add him
+		// player is not in weeks-log.yml, add him
 		if (!playerNames.contains(playerName)) {
 			section.set(playerName, 0);
 		}
-		// player is (already) in weekslog.yml
+		// player is (already) in weeks-log.yml
 		Integer playerWeekInt = (Integer) section.get(playerName);
 		int playerWeek = 0;
 		if (playerWeekInt != null) {
@@ -73,11 +73,11 @@ public class JoinEvent implements Listener {
 
 		}
 
-		// save weekslog.yml
+		// save weeks-log.yml
 		try {
 			weekLog.save(weekFile);
 		} catch (IOException e) {
-			Bukkit.getServer().getLogger().log(Level.SEVERE, "WeeklyReward: Cannot save file \"weekslog.yml\"", e);
+			Bukkit.getServer().getLogger().log(Level.SEVERE, "WeeklyReward: Cannot save file \"weeks-log.yml\"", e);
 		}
 	}
 
