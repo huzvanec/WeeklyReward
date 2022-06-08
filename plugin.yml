@@ -1,8 +1,8 @@
 main: cz.jeme.programu.weeklyreward.WeeklyReward
 name: WeeklyReward
-version: 1.0.0
+version: 1.0
 author: XD_CZ
-description: Give players rewards every week
+description: Give players custom rewards every week
 api-version: 1.16
 website: programu.jeme.cz
 prefix: WeeklyReward
