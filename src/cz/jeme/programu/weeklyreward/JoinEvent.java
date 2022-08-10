@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.util.UUID;
 import java.util.logging.Level;
 
 import org.bukkit.Bukkit;
@@ -48,14 +49,15 @@ public class JoinEvent implements Listener {
 		if (section == null) {
 			section = weekLog.createSection("Weeks");
 		}
-		Set<String> playerNames = section.getKeys(false);
+		Set<String> playerUUIDs = section.getKeys(false);
+		String playerUUID = p.getUniqueId().toString();
 		String playerName = p.getName();
 		// player is not in weeks-log.yml, add him
-		if (!playerNames.contains(playerName)) {
-			section.set(playerName, 0);
+		if (!playerUUIDs.contains(playerUUID)) {
+			section.set(playerUUID, 0);
 		}
 		// player is (already) in weeks-log.yml
-		Integer playerWeekInt = (Integer) section.get(playerName);
+		Integer playerWeekInt = (Integer) section.get(playerUUID);
 		int playerWeek = 0;
 		if (playerWeekInt != null) {
 			playerWeek = playerWeekInt.intValue();
@@ -66,9 +68,9 @@ public class JoinEvent implements Listener {
 		int weekInYear = cal.get(Calendar.WEEK_OF_YEAR);
 		if (playerWeek != weekInYear) {
 			// gets reward
-			section.set(playerName, weekInYear);
+			section.set(playerUUID, weekInYear);
 			Bukkit.getServer().getLogger().log(Level.INFO,
-					"WeeklyReward: Player " + playerName + " should get reward!");
+					"WeeklyReward: Player " + playerName + " (" + playerUUID + ") should get reward!");
 			generateReward(playerName);
 
 		}
