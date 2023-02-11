@@ -12,7 +12,7 @@
 ## **What is Weekly Reward?**
 It's a simple minecraft plugin for giving custom rewards to players every week.
 ## **What platforms are supported?**
-Spigot based minecraft servers **1.16+**
+Spigot based minecraft servers **1.16+** <br>
 Bukkit is **not** and will **not** be supported!
 ## **Configuration**
 All the configuration is in `WeeklyReward/rewards-config.yml`
