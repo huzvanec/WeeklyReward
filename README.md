@@ -1,4 +1,6 @@
 # **Weekly Reward**
+## WARNING!
+### This was my first ever java plugin! It contains many bugs and code imperfectins, which I am aware of. It is awaiting a complete makeover. 
 ## **Table of contents**
 [What is Weekly Reward?](#what-is-weekly-reward)
 
