@@ -6,6 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/SPIGOT"/>
+	<classpathentry kind="lib" path="lib/spigot-api-1.16.5-R0.1-SNAPSHOT-shaded.jar" sourcepath="lib/spigot-api"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -7,7 +7,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
-import java.util.UUID;
 import java.util.logging.Level;
 
 import org.bukkit.Bukkit;
@@ -23,7 +22,6 @@ public class JoinEvent implements Listener {
 
 	private String dataFolderName;
 	private List<String> rewardList;
-	
 
 	public JoinEvent(String dataFolderName, List<String> rewardList) {
 		this.dataFolderName = dataFolderName;
@@ -101,6 +99,7 @@ public class JoinEvent implements Listener {
 				+ "!\",\"color\":\"aqua\"},{\"text\":\"\\n\"},{\"text\":\"===========================\",\"color\""
 				+ ":\"gold\"},{\"text\":\"\\n \"}]");
 		Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "give " + playerName + " " + reward);
-		Bukkit.getServer().getLogger().log(Level.INFO, "WeeklyReward: " + playerName + " got " + rewardCount + " " + rewardName);
+		Bukkit.getServer().getLogger().log(Level.INFO,
+				"WeeklyReward: " + playerName + " got " + rewardCount + " " + rewardName);
 	}
 }

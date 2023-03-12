@@ -18,16 +18,16 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class WeeklyReward extends JavaPlugin {
-	
+
 	private List<String> rewardList = new ArrayList<String>();
-	
+
 	@Override
 	public void onEnable() {
 		PluginManager pm = Bukkit.getServer().getPluginManager();
 		pm.registerEvents(new JoinEvent(getDataFolder().getAbsolutePath(), rewardList), this);
 		File f = getDataFolder();
-		if(!f.exists()) {
-		    f.mkdir();
+		if (!f.exists()) {
+			f.mkdir();
 		}
 		rewardFileConfig();
 	}
@@ -40,12 +40,12 @@ public class WeeklyReward extends JavaPlugin {
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (command.getName().equalsIgnoreCase("weeklyreward")) {
 			if (sender instanceof Player) {
-				Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "tellraw" + sender.getName() +
-						" [\"\",{\"text\":\"WeeklyReward\",\"color\":\"green\"},{\"text\":\" succesfully loaded :D!\",\"color\":\"gold\"}]");
+				Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "tellraw" + sender.getName()
+						+ " [\"\",{\"text\":\"WeeklyReward\",\"color\":\"green\"},{\"text\":\" succesfully loaded :D!\",\"color\":\"gold\"}]");
 			} else {
-				sender.sendMessage("WeeklyReward successfully loaded :D!");	
+				sender.sendMessage("WeeklyReward successfully loaded :D!");
 			}
-			
+
 			return true;
 		}
 		return false;
@@ -54,7 +54,6 @@ public class WeeklyReward extends JavaPlugin {
 	public void registerEvents() {
 	}
 
-	
 	private void rewardFileConfig() {
 		File rewardsFile = new File(getDataFolder(), "rewards-config.yml");
 		// create rewards-config.yml
@@ -62,7 +61,8 @@ public class WeeklyReward extends JavaPlugin {
 			try {
 				rewardsFile.createNewFile();
 			} catch (IOException e) {
-				Bukkit.getServer().getLogger().log(Level.SEVERE, "WeeklyReward: Cannot create file \"rewards-config.yml\"", e);
+				Bukkit.getServer().getLogger().log(Level.SEVERE,
+						"WeeklyReward: Cannot create file \"rewards-config.yml\"", e);
 			}
 		}
 		FileConfiguration rewardsConfigYml = YamlConfiguration.loadConfiguration(rewardsFile);
@@ -83,7 +83,8 @@ public class WeeklyReward extends JavaPlugin {
 			try {
 				rewardsConfigYml.save(rewardsFile);
 			} catch (IOException e) {
-				Bukkit.getServer().getLogger().log(Level.SEVERE, "WeeklyReward: Cannot save file \"rewards-config.yml\"", e);
+				Bukkit.getServer().getLogger().log(Level.SEVERE,
+						"WeeklyReward: Cannot save file \"rewards-config.yml\"", e);
 			}
 			weekRewards = section.getKeys(false);
 		}
@@ -94,5 +95,5 @@ public class WeeklyReward extends JavaPlugin {
 			}
 		}
 	}
-	
+
 }
