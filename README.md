@@ -1,4 +1,6 @@
 # **Weekly Reward**
+## WARNING!
+### This was my first ever java plugin! It contains many bugs and code imperfectins, which I am aware of. It is awaiting a complete makeover. 
 ## **Table of contents**
 [What is Weekly Reward?](#what-is-weekly-reward)
 
@@ -10,9 +12,8 @@
 ## **What is Weekly Reward?**
 It's a simple minecraft plugin for giving custom rewards to players every week.
 ## **What platforms are supported?**
-Spigot 1.16 - 1.19   
-
-Paper 1.16 - 1.19 _(recommended)_
+Spigot based minecraft servers **1.16+** <br>
+Bukkit is **not** and will **not** be supported!
 ## **Configuration**
 All the configuration is in `WeeklyReward/rewards-config.yml`
 
