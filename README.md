@@ -1,7 +1,7 @@
 # **Weekly Reward**
-## WARNING!
-### This was my first ever java plugin! It contains many bugs and code imperfectins, which I am aware of. It is awaiting a complete makeover. 
+
 ## **Table of contents**
+
 [What is Weekly Reward?](#what-is-weekly-reward)
 
 [What platforms are supported?](#what-platforms-are-supported)
@@ -9,54 +9,67 @@
 [Configuration](#configuration)
 
 [How it works?](#how-it-works)
-## **What is Weekly Reward?**
-It's a simple minecraft plugin for giving custom rewards to players every week.
-## **What platforms are supported?**
-Spigot based minecraft servers **1.16+** <br>
-Bukkit is **not** and will **not** be supported!
-## **Configuration**
-All the configuration is in `WeeklyReward/rewards-config.yml`
 
-The configuration is in format:
+## **What is Weekly Reward?**
+
+It's a simple minecraft plugin for giving custom rewards to players every week.
+
+## **What platforms are supported?**
+
+Paper based minecraft servers 1.19.4+<br>
+**Spigot and Bukkit is not supported!**
+
+## **Configuration**
+
+All the configuration is in `WeeklyReward/config.yml`
+
+### Rewards:
+
 ```yml
-    <item_name> <count>:<chance>
+    { item: <item_name>, amount: <amount>, chance: <chance> }
 ```
 For example:
+
 ```yml
-Rewards:
-    diamond 20: 1
-    emerald 10: 5 #five times more common than diamonds
-    iron 128: 5 #same rarity as emeralds
+rewards:
+  - { item: diamond, amount: 20, chance: 1 }
+  - { item: emerald, amount: 10, chance: 5 } # Five times more common than diamonds
+  - { item: iron_ingot, amount: 128, chance: 5 } # Same chance as emeralds
 ```
+
 The chance works based on **`bigger number => bigger chance of gaining`**
 
-### Default configuration:
-```yml
-Rewards:
-    diamond 1: 15 #the rarest
-    emerald 20: 20
-    gold_ingot 15: 25
-    iron_ingot 25: 30 #the most common
-    coal_block 5: 15 #the rarest
-```
-To apply the configuration, restart your server. **Reloading the server will probably not help!**
+To apply your configuration, restart your server or use ```/weeklyreward reload```
+
 ## **How it works?**
+
 ### Reward check
-When player logs on the server, the plugin checks the last week number in the year, the player logged on and got the reward (read from the file `WeeklyReward/weekslog.yml`, **I do not recommend writing in this file manually**). If the current week number is different from the saved one, it gives the player his random reward and overwrites the week number in weekslog.yml.
+
+When player logs on the server, the plugin checks the last week number in the year, the player logged on and got the
+reward (read from the file `WeeklyReward/reward-log.yml`, **I do not recommend writing in this file manually**). If the
+current week number is different from the saved one, it gives the player his random reward and overwrites the week
+number in weekslog.yml.
+
 ### Random
-The "chance number" is actually a number of times the item will be added to a list from which it will be randomly chosen. That means if we create:
+
+The "chance number" is actually a number of times the item will be added to a list from which it will be randomly
+chosen. That means if we create:
+
 ````yml
-Rewards:
-    diamond 3: 1
-    emerald 20: 5
+rewards:
+  - { item: diamond, amount: 3, chance: 1 }
+  - { item: emerald, amount: 20, chance: 5 }
 ````
-It will create a list with **1× 3 diamonds** and **5× 20 emeralds**...
+
+It will create a list with **1× 3 diamonds** and **5× 20 emeralds** like this:
+
 ````yml
-diamond 3
-emerald 20
-emerald 20
-emerald 20
-emerald 20
-emerald 20
+3× diamond
+20× emerald
+20× emerald
+20× emerald
+20× emerald
+20× emerald
 ````
-... and then choose random one of these (that means we have 5× more chance of receiving emeralds, than diamonds).
+
+... and then it chooses random one of these (that means we have 5× more chance of receiving emeralds, than diamonds).
