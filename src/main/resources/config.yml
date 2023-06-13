@@ -1,0 +1,36 @@
+rewards:
+  - { item: emerald, amount: 25, chance: 10 }
+  - { item: emerald, amount: 50, chance: 7 }
+
+  - { item: gold_ingot, amount: 20, chance: 10 }
+  - { item: gold_ingot, amount: 40, chance: 7 }
+
+  - { item: iron_ingot, amount: 30, chance: 10 }
+  - { item: iron_ingot, amount: 60, chance: 7 }
+
+  - { item: diamond, amount: 1, chance: 10 }
+  - { item: diamond, amount: 5, chance: 6 }
+
+  - { item: coal, amount: 50, chance: 10 }
+  - { item: coal, amount: 100, chance: 7 }
+
+  - { item: netherite_scrap, amount: 1, chance: 6 }
+  - { item: netherite_ingot, amount: 1, chance: 4 }
+  - { item: netherite_ingot, amount: 3, chance: 2 }
+logging:
+  # Whether to log a message if the player receives a weekly reward
+  # It looks like this:
+  # <player_name> got <amount>× [<item_name>]
+  give: true
+messages:
+  # To find out more about this message format read https://docs.advntr.dev/minimessage/index.html
+  # If you want to disable some message type, set it to null
+  action-bar: null
+  chat: null
+  title:
+    title: '<gold>Weekly Reward!</gold>'
+    subtitle: '<#7FEE59>You got <#59D6EE>{AMOUNT}</#59D6EE>× <#59D6EE>{ITEM}</#59D6EE>!</#7FEE59>'
+    # Times are in milliseconds
+    fade-in: 1000
+    stay: 4000
+    fade-out: 1000
