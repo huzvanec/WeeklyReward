@@ -21,7 +21,8 @@ Paper based minecraft servers 1.19.4+<br>
 
 ## **Configuration**
 
-All the configuration is in `WeeklyReward/config.yml`
+All the configuration is in `WeeklyReward/config.yml`<br>
+[Default config.yml](https://github.com/Mandlemankiller/WeeklyReward/blob/master/src/main/resources/config.yml)
 
 ### Rewards:
 
