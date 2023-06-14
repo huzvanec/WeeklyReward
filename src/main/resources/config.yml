@@ -23,7 +23,7 @@ logging:
   # <player_name> got <amount>× [<item_name>]
   give: true
 messages:
-  # To find out more about this message format read https://docs.advntr.dev/minimessage/index.html
+  # To find out more about this message format read https://docs.advntr.dev/minimessage/
   # If you want to disable some message type, set it to null
   action-bar: null
   chat: null
