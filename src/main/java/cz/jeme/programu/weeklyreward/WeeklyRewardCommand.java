@@ -13,6 +13,7 @@ public class WeeklyRewardCommand extends Command {
     protected WeeklyRewardCommand(Config config) {
         super("weeklyreward", "The main weekly reward command", "", Collections.singletonList("wr"));
         this.config = config;
+        setPermission("weeklyreward.weeklyreward");
         register();
     }
 

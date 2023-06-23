@@ -14,20 +14,11 @@ public final class Messages {
         return MESSAGE.deserialize(string);
     }
 
-    public static String to(Component component) {
-        return MESSAGE.serialize(component);
-    }
-
     public static Component prefix(String string) {
         return MESSAGE.deserialize(PREFIX + string);
-    }
-
-    public static Component prefix(Component component) {
-        return from(PREFIX).append(component);
     }
 
     public static String strip(String string) {
         return MESSAGE.stripTags(string);
     }
-
 }
