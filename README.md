@@ -10,6 +10,8 @@
 
 [How it works?](#how-it-works)
 
+[Build](#Build)
+
 ## **What is Weekly Reward?**
 
 It's a simple minecraft plugin for giving custom rewards to players every week.
@@ -74,3 +76,19 @@ It will create a list with **1× 3 diamonds** and **5× 20 emeralds** like this:
 ````
 
 ... and then it chooses random one of these (that means we have 5× more chance of receiving emeralds, than diamonds).
+
+## Build
+Requirements: [Git](https://git-scm.com/), [Maven](https://maven.apache.org/)<br>
+Clone the repository
+```bash
+git clone https://github.com/Mandlemankiller/WeeklyReward.git
+```
+Move to the WeeklyReward folder
+```bash
+cd WeeklyReward
+```
+Package with Maven
+```bash
+mvn package
+```
+Done! The built jar is now located in ```target``` directory, it's called ```WeeklyReward-1.0-SNAPSHOT.jar```
