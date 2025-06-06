@@ -1,5 +1,5 @@
 name: WeeklyReward
-version: '${project.version}'
+version: '${version}'
 main: cz.jeme.programu.weeklyreward.WeeklyReward
-api-version: '1.19'
+api-version: '1.21.5'
 description: Give players custom rewards every week
